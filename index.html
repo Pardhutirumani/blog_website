@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pages of the Past</title>
+  <style>
+
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #00bcd4;
+    }
+
+    .blog-preview {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .blog-preview h2 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .blog-preview p {
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    /* Framed Images Grid */
+    .images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      width: 100%;
+      margin: 30px 0;
+    }
+
+    .images img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Banner Section */
+    .banner {
+      position: relative;
+      width: 100%;
+      margin: 40px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .banner img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      background: rgba(146, 5, 10, 0.4);
+      padding: 20px 40px;
+      border-radius: 8px;
+    }
+
+    .banner-text h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .banner-text button {
+      padding: 10px 20px;
+      background-color: #00bcd4;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .banner-text button:hover {
+      background-color: #0097a7;
+    }
+
+    .posts .post {
+      background: #fff;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .posts .post h3 {
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .posts .post .date {
+      font-size: 0.9em;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .posts .post p {
+      margin-bottom: 10px;
+    }
+
+    .posts .post a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .posts .post a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .header-top {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+      }
+
+      nav ul li {
+        margin: 10px 0;
+      }
+
+      header h1 {
+        margin: 10px 0;
+      }
+
+      .images img {
+        height: 150px;
+      }
+
+      .banner img {
+        height: 200px;
+      }
+
+      .banner-text h2 {
+        font-size: 1.5rem;
+      }
+
+      .banner-text button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <h1>PAGES OF THE PAST</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="write_blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="blog-preview">
+    <h2>Welcome to Blog PAGES OF THE PAST</h2>
+    <p>Share Your Stories, Experiences and Learnings...</p>
+  </section>
+
+  <!-- Responsive Image Grid -->
+  <div class="images">
+    <img src="./blog1.jpg" alt="Blog Image 1">
+    <img src="./blog9.jpg" alt="Blog Image 2">
+    <img src="./blog8.jpg" alt="Blog Image 3">
+    <img src="./blog7.jpg" alt="Blog Image 4">
+    <img src="./blog5.jpg" alt="Blog Image 5">
+  </div>
+
+  <!-- Banner Section -->
+  <section class="banner">
+    <img src="./blogbook1.webp" alt="Banner Image" />
+    <div class="banner-text">
+      <h2>View all posts</h2>
+      <button>Open</button>
+    </div>
+  </section>
+
+  <!-- Blog Posts -->
+  <main class="container">
+    <section class="posts">
+      <article class="post">
+        <h3>The Beauty of Life Experiences</h3>
+        <p class="date">October 17, 2025</p>
+        <p>
+          Life is a collection of moments—some joyful, some challenging—that shape who we are. Every experience, whether big or small, teaches us something valuable. From the laughter shared with friends to the lessons learned from mistakes, these moments build our resilience and wisdom. Embracing life’s ups and downs helps us grow, appreciate the present, and find meaning in our journey. After all, it’s through experiences that we truly come alive.</p>
+        <a href="blog_dashboard.html">Read more →</a>
+      </article>
+
+      <article class="post">
+        <h3>Learning from Mistakes: A Path to Growth
+        </h3>
+        <p class="date">October 16, 2025</p>
+        <p>
+          Mistakes are often seen as setbacks, but they are really stepping stones on the path to success. Every mistake holds a lesson if we’re willing to look closely. Instead of fearing failure, embracing it allows us to grow stronger, wiser, and more resilient. When we learn from our errors, we not only improve ourselves but also gain the courage to take on new challenges. Remember, mistakes don’t define us—how we respond to them does.</p>
+        <a href="blog_dashboard.html">Read more →</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Pages of the Past. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

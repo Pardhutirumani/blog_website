@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pages of the Past</title>
+  <style>
+    /* Basic Reset */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      width: 90%;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .header-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      text-align: center;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      user-select: none;
+    }
+
+    nav[aria-label="Primary Navigation"] ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav ul li {
+      /* margin handled by gap */
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: inline-block;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #00bcd4;
+      background-color: rgba(0, 188, 212, 0.1);
+      outline: none;
+    }
+
+    .blog-preview {
+      text-align: center;
+      margin: 40px 0 30px;
+    }
+
+    .blog-preview h2 {
+      font-size: 2.4em;
+      margin-bottom: 10px;
+      color: #222;
+      font-weight: 700;
+    }
+
+    .blog-preview p {
+      font-size: 1.15em;
+      color: #555;
+      font-style: italic;
+      letter-spacing: 0.03em;
+    }
+
+    /* Responsive Image Grid */
+    .images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      width: 100%;
+      margin: 30px 0;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    }
+
+    .images img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .images img:hover,
+    .images img:focus {
+      transform: scale(1.05);
+      outline: none;
+    }
+
+    /* Banner Section */
+    .banner {
+      position: relative;
+      width: 100%;
+      margin: 40px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .banner:hover,
+    .banner:focus-within {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .banner img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+    }
+
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      background: rgba(146, 5, 10, 0.6);
+      padding: 20px 40px;
+      border-radius: 8px;
+      max-width: 80%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.25);
+      user-select: none;
+    }
+
+    .banner-text h2 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .banner-text button {
+      padding: 12px 24px;
+      background-color: #00bcd4;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, box-shadow 0.2s ease;
+      user-select: none;
+    }
+
+    .banner-text button:hover,
+    .banner-text button:focus {
+      background-color: #0097a7;
+      box-shadow: 0 0 8px #0097a7;
+      outline: none;
+    }
+
+    .posts .post {
+      background: #fff;
+      margin-bottom: 20px;
+      padding: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .posts .post:hover,
+    .posts .post:focus-within {
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .posts .post h3 {
+      color: #222;
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 1.6rem;
+    }
+
+    .posts .post .date {
+      font-size: 0.9em;
+      color: #777;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .posts .post p {
+      margin-bottom: 10px;
+      font-size: 1.05em;
+      color: #444;
+    }
+
+    .posts .post a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1em;
+      transition: text-decoration 0.3s ease, color 0.3s ease;
+    }
+
+    .posts .post a:hover,
+    .posts .post a:focus {
+      text-decoration: underline;
+      color: #0056b3;
+      outline: none;
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: auto;
+      font-size: 0.95em;
+      user-select: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .header-top {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      nav ul li {
+        margin: 0; /* gap handles spacing */
+      }
+
+      header h1 {
+        margin: 10px 0;
+      }
+
+      .images img {
+        height: 150px;
+      }
+
+      .banner img {
+        height: 200px;
+      }
+
+      .banner-text h2 {
+        font-size: 1.5rem;
+      }
+
+      .banner-text button {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <h1>PAGES OF THE PAST</h1>
+      </div>
+      <nav aria-label="Primary Navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="write_blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="blog-preview">
+    <h2>Welcome to Blog PAGES OF THE PAST</h2>
+    <p>Share Your Stories, Experiences and Learnings...</p>
+  </section>
+
+  <!-- Responsive Image Grid -->
+  <div class="images" role="list">
+    <img src="./blog1.jpg" alt="Historic book and writing tools" role="listitem" tabindex="0" />
+    <img src="./blog9.jpg" alt="Old manuscripts on a table" role="listitem" tabindex="0" />
+    <img src="./blog8.jpg" alt="Stack of vintage books" role="listitem" tabindex="0" />
+    <img src="./blog7.jpg" alt="Writing with a quill pen" role="listitem" tabindex="0" />
+    <img src="./blog5.jpg" alt="Pages of an ancient book" role="listitem" tabindex="0" />
+  </div>
+
+  <!-- Banner Section -->
+  <section class="banner" tabindex="0" aria-label="View all blog posts">
+    <img src="./blogbook1.webp" alt="Open book with vintage pages" />
+    <div class="banner-text">
+      <h2>View all posts</h2>
+      <button onclick="location.href='blog_dashboard.html'">Open</button>
+    </div>
+  </section>
+
+  <!-- Blog Posts -->
+  <main class="container">
+    <section class="posts" aria-live="polite">
+      <article class="post" tabindex="0">
+        <h3>The Beauty of Life Experiences</h3>
+        <p class="date">October 17, 2025</p>
+        <p>
+          Life is a collection of moments—some joyful, some challenging—that shape who we are. Every experience, whether big or small, teaches us something valuable. From the laughter shared with friends to the lessons learned from mistakes, these moments build our resilience and wisdom. Embracing life’s ups and downs helps us grow, appreciate the present, and find meaning in our journey. After all, it’s through experiences that we truly come alive.
+        </p>
+        <a href="blog_dashboard.html">Read more →</a>
+      </article>
+
+      <article class="post" tabindex="0">
+        <h3>Learning from Mistakes: A Path to Growth</h3>
+        <p class="date">October 16, 2025</p>
+        <p>
+          Mistakes are often seen as setbacks, but they are really stepping stones on the path to success. Every mistake holds a lesson if we’re willing to look closely. Instead of fearing failure, embracing it allows us to grow stronger, wiser, and more resilient. When we learn from our errors, we not only improve ourselves but also gain the courage to take on new challenges. Remember, mistakes don’t define us—how we respond to them does.
+        </p>
+        <a href="blog_dashboard.html">Read more →</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Pages of the Past. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
